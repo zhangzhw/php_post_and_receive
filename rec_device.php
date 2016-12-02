@@ -1,5 +1,5 @@
 <?php 
-header("Content-type: text/html; charset=utf-8");
+
 if ($_SERVER['REQUEST_METHOD']=='POST')
 {
 	$post_data = file_get_contents('php://input');
