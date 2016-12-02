@@ -1,10 +1,7 @@
 <?php
-
-
-	$data = array (
-			"type"=>"123",
-		//	"pcPassword" => "601cadmin"
-	);
+$data = array (
+		"type"=>"123",
+);
 	$url="http://192.168.1.103/gaotie/rec_device.php";
 	$data=json_encode($data);
 	$ch = curl_init();
