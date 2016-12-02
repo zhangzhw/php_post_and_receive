@@ -1,0 +1,2 @@
+# php_post_and_receive
+php实现json数据的post发送与接收
