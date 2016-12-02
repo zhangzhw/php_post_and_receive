@@ -1,21 +1,19 @@
 <?php
 $data = array (
-		"type"=>"123",
+			"type"=>"123"
 );
-	$url="http://192.168.1.103/gaotie/rec_device.php";
-	$data=json_encode($data);
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $url);
+$data=json_encode($data);
+//测试地址的url
+$url="http://192.168.1.103/gaotie/rec_device.php";
 	
-// 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Content-Length: ' . strlen($data)));
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);//$data JSON类型字符串
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);//$data JSON类型字符串
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	
-//	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Content-Length: ' . strlen($data)));
-	
-	$filecontent=curl_exec($ch);
-	curl_close($ch);
-	echo $filecontent;
+$filecontent=curl_exec($ch);
+curl_close($ch);
+echo $filecontent;
 
 ?>
