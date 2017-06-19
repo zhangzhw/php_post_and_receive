@@ -1,0 +1,11 @@
+{
+  "name": "devops-demo",
+  "version": "0.0.1",
+  "description": "This node.js project consists of the demo of DevOps.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chn",
+  "license": "ISC"
+}
