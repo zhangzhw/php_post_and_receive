@@ -16,11 +16,11 @@ before_install:
  - ls .ssh -al
  - ls build/zhangzhw -al
  - ls builds -al
- - chmod 600 ~/.ssh/id_rsa
+ - chmod 600 ~/build/zhangzhw/php_post_and_receive/ssh/id_rsa
 
  - eval $(ssh-agent)
- - ssh-add ~/.ssh/id_rsa
- - cp .travis/ssh_config ~/.ssh/config
+ - ssh-add ~/build/zhangzhw/php_post_and_receive/ssh/id_rsa
+ - cp ~/build/zhangzhw/php_post_and_receive/.travis/ssh_config ~/.ssh/config
 
  - git config --global user.name 'zhangzhw'
  - git config --global user.email zhangzhiwei_94@163.com
