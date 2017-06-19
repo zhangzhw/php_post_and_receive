@@ -11,10 +11,10 @@ branches:
 before_install:
  - openssl aes-256-cbc -K $encrypted_b8624f4f5df6_key -iv $encrypted_b8624f4f5df6_iv -in id_rsa.enc -out id_rsa -d
 
- - chmod 600 ~/.ssh/id_rsa
+ - chmod 600 /home/zzw/.ssh/id_rsa
 
  - eval $(ssh-agent)
- - ssh-add ~/.ssh/id_rsa
+ - ssh-add /home/zzw/.ssh/id_rsa
  - cp .travis/ssh_config ~/.ssh/config
 
  - git config --global user.name 'zhangzhw'
