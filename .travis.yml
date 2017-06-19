@@ -26,7 +26,7 @@ script:
 - hexo clean
 - hexo g -d
 deploy:
-  provider: heroku
+  provider:  heroku
   app: polar-mountain-26503
   api_key:
     secure: u+bLW15mHKbnhcvTbCH6mqG4vB2BxSKYIJF/8KlASozRgpUHn8/Qbj6j1SILuOXfOkANmWxelXEudQrISJx2urNMcWoswUUTGtWi9fiXA/U9vSOrEBm6QSjbK/iwo6L+nLuVgqi046ONs/tkfKsky4FLe8YCzjpxgCAP/Wnv3Lq4+h0wpIam/0ZkO7qNP7f7VUN3CMFMKnn1YZZTBVvlSDUfpLqL69llUxnERMpa3efORM0CpIKhZkrya5JERdtohEaxvKIuBHfTpFGK67PHahH6ytc5VmD+qdaYL1csg1H/2uVdIM6ZART+cYZAsA8voZNOAvCsNLUr41N1Hh/iyKV/2lqCpGlrj3fIU3rtzZunULw24slA4zLl13POT0sOQsJ83zoT+eNk091QgL5zLPGOfU4lKvTvVc5UZ+qX1zjxKUEMdU+44HJjbF8nrQtxn1WHbNaRrTU3LEmMvwyGE80t3LyvfMq+8Q2uSw7L9IN/RTIrLK/7c1x1WIK8sOmkCXdpOXQr72n4sGrDK73xBUFFt/sUr4rHQN+N0RcW2D+N+aoh/2Yizm7olRC+Kjewoq3hBbGbgE+JMw0/4u43TAT4A0ZPG2Xa+z3PaBmpv7MSdcvRe6Ca7DM0e9ZkTlKxbvj8tw9ia0w4zY2q2ELvho3jbjanYnwF+uBZ/cz64R0=
