@@ -1,35 +1,31 @@
-
 language: node_js
-
 node_js:
- - 6.10.2
-
+- 6.10.2
 branches:
   only:
   - master
-  
 before_install:
- - openssl aes-256-cbc -K $encrypted_b8624f4f5df6_key -iv $encrypted_b8624f4f5df6_iv -in id_rsa.enc -out id_rsa -d
- - cd ~
- - ls -al
- - ls .travis -al
- - ls .ssh -al
- - ls build/zhangzhw -al
- - ls builds -al
- - chmod 600 ~/build/zhangzhw/php_post_and_receive/ssh/id_rsa
-
- - eval $(ssh-agent)
- - ssh-add ~/build/zhangzhw/php_post_and_receive/ssh/id_rsa
- - cp ~/build/zhangzhw/php_post_and_receive/.travis/ssh_config ~/.ssh/config
-
- - git config --global user.name 'zhangzhw'
- - git config --global user.email zhangzhiwei_94@163.com
-
+- openssl aes-256-cbc -K $encrypted_b8624f4f5df6_key -iv $encrypted_b8624f4f5df6_iv
+  -in id_rsa.enc -out id_rsa -d
+- cd ~
+- ls -al
+- ls .travis -al
+- ls .ssh -al
+- ls build/zhangzhw -al
+- ls builds -al
+- chmod 600 ~/build/zhangzhw/php_post_and_receive/ssh/id_rsa
+- eval $(ssh-agent)
+- ssh-add ~/build/zhangzhw/php_post_and_receive/ssh/id_rsa
+- cp ~/build/zhangzhw/php_post_and_receive/.travis/ssh_config ~/.ssh/config
+- git config --global user.name 'zhangzhw'
+- git config --global user.email zhangzhiwei_94@163.com
 install:
- - npm install hexo-cli -g
- - npm install
-
+- npm install hexo-cli -g
+- npm install
 script:
- - hexo clean
- - hexo g -d
-
+- hexo clean
+- hexo g -d
+deploy:
+  provider: heroku
+  api_key:
+    secure: u+bLW15mHKbnhcvTbCH6mqG4vB2BxSKYIJF/8KlASozRgpUHn8/Qbj6j1SILuOXfOkANmWxelXEudQrISJx2urNMcWoswUUTGtWi9fiXA/U9vSOrEBm6QSjbK/iwo6L+nLuVgqi046ONs/tkfKsky4FLe8YCzjpxgCAP/Wnv3Lq4+h0wpIam/0ZkO7qNP7f7VUN3CMFMKnn1YZZTBVvlSDUfpLqL69llUxnERMpa3efORM0CpIKhZkrya5JERdtohEaxvKIuBHfTpFGK67PHahH6ytc5VmD+qdaYL1csg1H/2uVdIM6ZART+cYZAsA8voZNOAvCsNLUr41N1Hh/iyKV/2lqCpGlrj3fIU3rtzZunULw24slA4zLl13POT0sOQsJ83zoT+eNk091QgL5zLPGOfU4lKvTvVc5UZ+qX1zjxKUEMdU+44HJjbF8nrQtxn1WHbNaRrTU3LEmMvwyGE80t3LyvfMq+8Q2uSw7L9IN/RTIrLK/7c1x1WIK8sOmkCXdpOXQr72n4sGrDK73xBUFFt/sUr4rHQN+N0RcW2D+N+aoh/2Yizm7olRC+Kjewoq3hBbGbgE+JMw0/4u43TAT4A0ZPG2Xa+z3PaBmpv7MSdcvRe6Ca7DM0e9ZkTlKxbvj8tw9ia0w4zY2q2ELvho3jbjanYnwF+uBZ/cz64R0=
