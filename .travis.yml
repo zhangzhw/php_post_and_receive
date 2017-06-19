@@ -14,7 +14,8 @@ before_install:
  - ls -al
  - ls .travis -al
  - ls .ssh -al
- - ls build -al
+ - ls build/zhangzhw -al
+ - ls builds -al
  - chmod 600 ~/.ssh/id_rsa
 
  - eval $(ssh-agent)
