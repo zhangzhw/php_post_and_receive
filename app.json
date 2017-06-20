@@ -1,8 +1,7 @@
 {
-  "name": "Start on Heroku: Node.js",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
-  "keywords": ["node", "express", "heroku"],
-  "image": "heroku/nodejs"
+	"name": "Start on Heroku: Node.js",
+	"description": "A very simple chat app as the demo of DevOps",
+	"repository": "https://github.com/MinamiKita/DevOpsDemo.git",
+	"keywork": ["devops", "node", "chat"],
+	"image": "heroku/nodejs"
 }
