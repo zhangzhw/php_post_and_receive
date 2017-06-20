@@ -6,23 +6,65 @@
 
 'use strict';
 
-let app = require('express')();
-let http = require('http').Server(app);
-let io = require('socket.io')(http);
+let express = require('express');
+let app = express();
+let server = require('http').Server(app);
+let io = require('socket.io')(server);
 
 app.set('port', (process.env.PORT || 5000));
 
-app.get('/', (req, res) => {
-	res.sendFile(__dirname+'/index.html');
-});
+// Route
+app.use(express.static(__dirname+'/page'));
+
+// Track chatting
+let nUsers = 0;
 
 io.on('connection', (socket) => {
-	console.log('A user connected');
-	socket.on('chat message', (message) => {
-		io.emit('chat message', message);
+	let isUser = false;
+
+	socket.on('login', (message) => {
+		if (isUser) return;
+
+		socket.label = message.id;
+		socket.username = message.username;
+		nUsers++;
+		isUser = true;
+		
+		console.log(`login: ${socket.username}; ${nUsers}`);
+
+		socket.broadcast.emit('loginned', {
+			username: socket.username,
+			nUsers: nUsers
+		});
+	});
+
+	socket.on('send message', (data) => {
+
+		console.log(`send: ${socket.username}; ${data}`);
+
+		io.emit('get message', {
+			id: socket.label,
+			username: socket.username,
+			data: data
+		});
+	});
+
+	socket.on('disconnect', () => {
+		if (isUser) {
+			nUsers--;
+			isUser = false;
+
+			console.log(`logout: ${socket.username}; ${nUsers}`);
+
+			socket.broadcast.emit('logouted', {
+				username: socket.username,
+				nUsers: nUsers
+			});
+		}
 	});
 });
 
-http.listen(app.get('port'), () => {
+// Listen
+server.listen(app.get('port'), () => {
 	console.log('Node server is running on port', app.get('port'));
 });
