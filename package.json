@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/MinamiKita/DevOpsDemo#readme",
   "dependencies": {
+    "appdynamics": "4.3.1",
     "express": "^4.15.3",
     "socket.io": "^2.0.3"
   }
