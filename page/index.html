@@ -34,8 +34,8 @@
 							<template v-for="message in messages" :key="message.timestamp">
 								<tr>
 									<td class="text-left" v-if="message.type===0"><a href="javascript:void(0)"><span>{{message.username}}<i class="fui-arrow-right"></i></span></a>{{message.data}}</td>
-									<td class="text-center" v-else-if="message.type===1">{{message.username}}&nbsp;entered the chat room</td>
-									<td class="text-center" v-else-if="message.type===2">{{message.username}}&nbsp;left the chat room</td>
+									<td class="text-center" v-else-if="message.type===1"><b>{{message.username}}&nbsp;entered the chat room</b></td>
+									<td class="text-center" v-else-if="message.type===2"><b>{{message.username}}&nbsp;left the chat room</b></td>
 									<td class="text-right" v-else-if="message.type===3">{{message.data}}<a href="javascript:void(0)"><span><i class="fui-arrow-left"></i>{{message.username}}</span></a></td>
 								</tr>
 							</template>
